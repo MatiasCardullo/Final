@@ -1,0 +1,75 @@
+# depslib dependency file v1.0
+1532527318 source:c:\users\alumno\final\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1532527318 c:\users\alumno\final\arraylist.h
+
+1532527942 source:c:\users\alumno\final\letra.c
+	<stdio.h>
+	<stdlib.h>
+	"letra.h"
+	"SetGetBool.h"
+	"ArrayList.h"
+
+1532526181 c:\users\alumno\final\letra.h
+	"ArrayList.h"
+
+1532527318 c:\users\alumno\final\setgetbool.h
+	"letra.h"
+
+1532527935 source:c:\users\alumno\final\main.c
+	<stdio.h>
+	<stdlib.h>
+	"letra.h"
+	"SetGetBool.h"
+	"ArrayList.h"
+
+1532527318 source:c:\users\alumno\final\setgetbool.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"SetGetBool.h"
+	"letra.h"
+
+1532658312 source:f:\final\setgetbool.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"SetGetBool.h"
+	"letra.h"
+
+1532658294 f:\final\setgetbool.h
+	"letra.h"
+
+1532675676 f:\final\letra.h
+	"ArrayList.h"
+
+1532528448 f:\final\arraylist.h
+
+1532651042 source:f:\final\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1532981240 source:f:\final\main.c
+	<stdio.h>
+	<stdlib.h>
+	"letra.h"
+	"SetGetBool.h"
+	"ArrayList.h"
+
+1532806162 source:f:\final\letra.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"letra.h"
+	"SetGetBool.h"
+	"ArrayList.h"
+
