@@ -7,9 +7,9 @@
 
 int main()
 {
-    int subArrayListA=0,subArrayListB=0;
-    ArrayList* auxArray=al_newArrayList();
-    ArrayList *auxArrayA,*auxArrayB;
+    ArrayList *auxArray=al_newArrayList();
+    ArrayList *auxArrayA=NULL;
+    ArrayList *auxArrayB=NULL;
     if(parser_Letra("datos.csv",auxArray)){
         int seguir=0;
         auxArray->map(auxArray,setVocalOConsonante,0);
@@ -21,34 +21,62 @@ int main()
                     system("pause");
                     break;
                 case '2':
-                    if(subArrayListA==0){
+                    if(auxArrayA==NULL){
                         auxArrayA=al_newArrayList();
-                        subArrayListA=1;
+                    }else{
+                        auxArrayA->clear(auxArrayA);
                     }
                     listFilter(auxArray,auxArrayA);
-                    system("pause");
-                    /*auxArrayA->sort(auxArrayA,orderLetter,1);
-                    system("pause");
-                    printf("\n|id|letra|   nombre|vocal|consonante|\n");
-                    auxArrayA->map(auxArrayA,mostrarLetra,1);
-                    system("pause");*/
+                    if(auxArrayA->isEmpty(auxArrayA)){
+                        printf("\n No se encontraron coincidencias\n");
+                    }else{
+                        auxArrayA->sort(auxArrayA,orderLetter,0);
+                        printf("\n Lista A:\n");
+                        printf("\n|id|letra|   nombre|vocal|consonante|\n");
+                        auxArrayA->map(auxArrayA,mostrarLetra,1);
+                    }
+                    printf("\n ");system("pause");
                     break;
                 case '3':
-                    if(subArrayListB==0){
+                    if(auxArrayB==NULL){
                         auxArrayB=al_newArrayList();
-                        subArrayListB=1;
+                    }else{
+                        auxArrayB->clear(auxArrayB);
                     }
+                    listFilter(auxArray,auxArrayB);
+                    if(auxArrayB->isEmpty(auxArrayB)){
+                        printf("\n No se encontraron coincidencias\n");
+                    }else{
+                        listPurger(auxArray,auxArrayB);
+                        auxArrayB->map(auxArrayB,mostrarLetra,1);
+                        system("pause");
+                        /*removeRepeated(auxArrayB);
+                        auxArrayB->map(auxArrayB,mostrarLetra,1);
+                        system("pause");*/
+                        auxArrayB->sort(auxArrayB,orderLetter,1);
+                        printf("\n Lista B:\n");
+                        printf("\n|id|letra|   nombre|vocal|consonante|\n");
+                        auxArrayB->map(auxArrayB,mostrarLetra,1);
+                    }
+                    printf("\n ");system("pause");
                     break;
                 case '4':
-                    crear_Letra("prueba.csv",auxArray);
+                    printf("\n Generando Archivos:\n ");
+                    if(crear_Letra("completo.csv",auxArray))
+                        {printf(" -Lista completa\n ");}
+                    if(crear_Letra("repetido.csv",auxArrayA))
+                        {printf(" -Lista con repetidos\n ");}
+                    if(crear_Letra("depurado.csv",auxArrayB))
+                        {printf(" -Lista depurada\n ");}
+                    system("pause");
                     break;
                 case ESC:
                     seguir=ESC;
-                    auxArray->deleteArrayList(auxArray);
-                    if(subArrayListA)
-                        {auxArrayA->deleteArrayList(auxArrayA);}
-                    if(subArrayListB)
-                        {auxArrayB->deleteArrayList(auxArrayB);}
+                    al_deleteArrayList(auxArray);
+                    if(auxArrayA!=NULL)
+                        {al_deleteArrayList(auxArrayA);}
+                    if(auxArrayB!=NULL)
+                        {al_deleteArrayList(auxArrayB);}
                     break;
             }
         }

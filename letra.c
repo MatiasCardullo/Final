@@ -52,39 +52,76 @@ int orderLetter(Letra*aux1,Letra*aux2){
 int listFilter(ArrayList* this,ArrayList* auxArray){
     char *String=(char*)malloc(sizeof(char)*100);
     char *pAux;
+    printf("Ingrese caracteres: ");
     getString(100,String);
     int arrayList=0;
-    int contIndex=0,index=0;
-    int isRepeat=0;
+    int index=0;
     char letraAux;
     for(int i=0;i<=strlen(String);i++){
         pAux=String+i;
         letraAux=*pAux;
         if(!isLetra(letraAux))
             {continue;}
-        for(int j=i-1;j>=0;j--){
-            if(letraAux==*(String+j))
-                {isRepeat=1;break;}
-        }
-        if(isRepeat)
-            {isRepeat=0;continue;}
         index=this->indexInt(this,char_getLetra,letraAux,index,this->len(this));
         while(index>=0){
-            if(contIndex==0){
-                printf("\n  | id|letra|   nombre|vocal|consonante|\n");
-            }contIndex++;
-            printf("%2d)%3d",contIndex,index);mostrarLetra(this->get(this,index));
             auxArray->add(auxArray,this->get(this,index));
             index=this->indexInt(this,char_getLetra,letraAux,index+1,this->len(this));
         }index=this->indexInt(this,char_getLetra,letraAux,0,this->len(this));
     }free(String);
-    auxArray->sort(auxArray,orderLetter,1);
-    system("pause");
-    printf("\n Lista A:\n");
-    printf("\n|id|letra|   nombre|vocal|consonante|\n");
-    auxArray->map(auxArray,mostrarLetra,1);
-    system("pause");
     return arrayList;
+}
+
+int listPurger(ArrayList* this, ArrayList* auxArray){
+        //auxArray->map(auxArray,mostrarLetra,1);
+    ArrayList* filter=auxArray->clone(auxArray);
+    ArrayList* output=this->clone(this);
+    int arrayList=0;
+    int index;
+    char letraAux;
+    for(int i=0;i<filter->len(filter);i++){
+        index=0;
+        letraAux=char_getLetra(filter->get(filter,i));
+        index=output->indexInt(output,char_getLetra,letraAux,index,output->len(output));
+        while(index>=0){
+            arrayList=1;
+            mostrarLetra(output->get(output,index));
+            output->remove(output,index);
+            index=output->indexInt(output,char_getLetra,letraAux,index,output->len(output));
+        }
+    }
+    system("pause");
+    output->map(output,mostrarLetra,1);
+    al_deleteArrayList(auxArray);
+    auxArray=output->clone(output);
+    system("pause");
+    /*if(arrayList){
+        auxArray->clear(auxArray);
+        auxArray=outputArray->clone(outputArray);
+        auxArray->map(auxArray,mostrarLetra,1);
+        system("pause");
+        al_deleteArrayList(outputArray);
+    }*/
+    al_deleteArrayList(filter);
+    return arrayList;
+}
+
+int removeRepeated(ArrayList *this){
+    int index=0,delet=-1,output=0;
+    char aux;
+    do{
+        aux=char_getLetra(this->get(this,index));
+        index=this->indexInt(this,char_getLetra,aux,index+1,this->len(this));
+        if(index>=0){
+            if(delet>=0){
+                printf("remove");
+                this->remove(this,delet);
+                output=1;
+            }
+            delet=index;
+        }
+
+    }while(index>=0);
+    return output;
 }
 
 int parser_Letra(char* fileName, ArrayList* this)

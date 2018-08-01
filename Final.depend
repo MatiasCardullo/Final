@@ -73,3 +73,41 @@
 	"SetGetBool.h"
 	"ArrayList.h"
 
+1533090672 source:c:\users\matias\desktop\final\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1532528448 c:\users\matias\desktop\final\arraylist.h
+
+1533092524 source:c:\users\matias\desktop\final\letra.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"letra.h"
+	"SetGetBool.h"
+	"ArrayList.h"
+
+1533085105 c:\users\matias\desktop\final\letra.h
+	"ArrayList.h"
+
+1532658294 c:\users\matias\desktop\final\setgetbool.h
+	"letra.h"
+
+1533092651 source:c:\users\matias\desktop\final\main.c
+	<stdio.h>
+	<stdlib.h>
+	"letra.h"
+	"SetGetBool.h"
+	"ArrayList.h"
+
+1532658312 source:c:\users\matias\desktop\final\setgetbool.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"SetGetBool.h"
+	"letra.h"
+

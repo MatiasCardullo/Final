@@ -239,10 +239,12 @@ int al_clear(ArrayList* this)
 
 
     if(this != NULL){
-        this->pElements = (void**) realloc(this->pElements, sizeof(void*)* AL_INITIAL_VALUE);
+        for(int i=0;i<=this->len(this);i++){
+            this->remove(this,i);
+        }
+        /*this->pElements = (void**) realloc(this->pElements, sizeof(void*)* AL_INITIAL_VALUE);
         this->size = 0;
-        this->reservedSize = AL_INITIAL_VALUE;
-
+        this->reservedSize = AL_INITIAL_VALUE;*/
         returnAux = 0;
     }
     return returnAux;
@@ -251,7 +253,7 @@ int al_clear(ArrayList* this)
 
 
 
-/* \brief Returns an array containing all of the elements in this list in proper sequence
+/** \brief Returns an array containing all of the elements in this list in proper sequence
  * \param pList ArrayList* Pointer to arrayList
  * \return ArrayList* Return  (NULL) if Error [pList is NULL pointer]
  *                          - (New array) if Ok

@@ -8,10 +8,14 @@ struct S_Letra{
   int vocal;
   int consonante;
 };
+
+int menu();
 typedef struct S_Letra Letra;
 char toUpper(char);
 int orderLetter(Letra*,Letra*);
 int listFilter(ArrayList*,ArrayList*);
+int listPurger(ArrayList*,ArrayList*);
+int removeRepeated(ArrayList*);
 int mostrarLetra(Letra* eAux);
 int parser_Letra(char* fileName, ArrayList* this);
 int crear_Letra(char* fileName, ArrayList* this);
