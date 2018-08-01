@@ -10,7 +10,6 @@ void char_setLetra(Letra* this, char letra);
 int setVocalOConsonante(Letra* this);
 
 //GETTERS
-int getPositiveNumber(int);
 char* getString(int,char*);
 int char_getVocal(Letra* this);
 int char_getConsonante(Letra* this);

@@ -21,11 +21,9 @@ int main()
                     system("pause");
                     break;
                 case '2':
-                    if(auxArrayA==NULL){
-                        auxArrayA=al_newArrayList();
-                    }else{
-                        auxArrayA->clear(auxArrayA);
-                    }
+                    if(auxArrayA!=NULL){
+                        al_deleteArrayList(auxArrayA);
+                    }auxArrayA=al_newArrayList();
                     listFilter(auxArray,auxArrayA);
                     if(auxArrayA->isEmpty(auxArrayA)){
                         printf("\n No se encontraron coincidencias\n");
@@ -38,19 +36,15 @@ int main()
                     printf("\n ");system("pause");
                     break;
                 case '3':
-                    if(auxArrayB==NULL){
-                        auxArrayB=al_newArrayList();
-                    }else{
-                        auxArrayB->clear(auxArrayB);
-                    }
+                    if(auxArrayB!=NULL){
+                        al_deleteArrayList(auxArrayB);
+                    }auxArrayB=al_newArrayList();
                     auxArrayB=al_clone(auxArray);
                     listPurger(auxArray,auxArrayB);
                     if(auxArrayB->isEmpty(auxArrayB)){
                         printf("\n No se encontraron diferencias\n");
                     }else{
-                        /*removeRepeated(auxArrayB);
-                        auxArrayB->map(auxArrayB,mostrarLetra,1);
-                        system("pause");*/
+                        removeRepeated(auxArrayB);
                         auxArrayB->sort(auxArrayB,orderLetter,1);
                         printf("\n Lista B:\n");
                         printf("\n|id|letra|   nombre|vocal|consonante|\n");
@@ -59,14 +53,14 @@ int main()
                     printf("\n ");system("pause");
                     break;
                 case '4':
-                    printf("\n Generando Archivos:\n ");
+                    printf(" Generando Archivos...\n\n ");
                     if(crear_Letra("completo.csv",auxArray))
                         {printf(" -Lista completa\n ");}
                     if(crear_Letra("repetido.csv",auxArrayA))
                         {printf(" -Lista con repetidos\n ");}
                     if(crear_Letra("depurado.csv",auxArrayB))
                         {printf(" -Lista depurada\n ");}
-                    system("pause");
+                    printf("\n ");system("pause");
                     break;
                 case ESC:
                     seguir=ESC;

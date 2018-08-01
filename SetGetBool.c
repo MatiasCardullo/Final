@@ -22,22 +22,6 @@ void char_setLetra(Letra* this, char letra){
         {this->letra=letra;}
 }
 
-int getPositiveNumber(int limit){
-    char* aux;
-    int digits,cont=limit;
-    for(digits=1;cont>0;digits++)
-        {cont=cont/10;}
-    aux=(char *)malloc(sizeof(char)*(digits));
-    int number=NULL;
-    while(1){
-        getString(digits,aux);
-        number=atoi(aux);
-        if(number>0&&number<limit)
-            {free(aux);break;}
-        else
-            {printf("%c",7);}
-    }return number;
-}
 char* getString(int large,char* aux){
     fflush(stdin);
     fgets(aux,large,stdin);

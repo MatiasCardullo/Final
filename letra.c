@@ -16,6 +16,8 @@ int menu(){
     int seguir=0;
         system("cls");
         printf("________________________________________________________________________________\n");
+        printf("\t\t\t\tESC para salir\n");
+        printf("________________________________________________________________________________\n");
         printf("  1-Listar todo\n");
         printf("  2-Listar A\n");
         printf("  3-Listar B\n");
@@ -109,22 +111,25 @@ int listPurger(ArrayList* this,ArrayList* auxArray){
 }
 
 int removeRepeated(ArrayList *this){
-    int index=0,delet=-1,output=0;
-    char aux;
-    do{
-        aux=char_getLetra(this->get(this,index));
-        index=this->indexInt(this,char_getLetra,aux,index+1,this->len(this));
-        if(index>=0){
-            if(delet>=0){
-                printf("remove");
-                this->remove(this,delet);
-                output=1;
+    int arrayList=0;
+    int index=0;
+    int isRepeat=0;
+    char letraAux;
+    for(int i=0;i<this->len(this);i++){
+        letraAux=char_getLetra(this->get(this,i));
+        for(int j=i-1;j>=0;j--){
+            if(letraAux==char_getLetra(this->get(this,j))){
+                isRepeat=1;
+                index=j;
+                break;
             }
-            delet=index;
         }
-
-    }while(index>=0);
-    return output;
+        if(isRepeat){
+            isRepeat=0;
+            this->remove(this,index);
+            i--;
+        }
+    }
 }
 
 int parser_Letra(char* fileName, ArrayList* this){
