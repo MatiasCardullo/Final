@@ -43,13 +43,11 @@ int main()
                     }else{
                         auxArrayB->clear(auxArrayB);
                     }
-                    listFilter(auxArray,auxArrayB);
+                    auxArrayB=al_clone(auxArray);
+                    listPurger(auxArray,auxArrayB);
                     if(auxArrayB->isEmpty(auxArrayB)){
-                        printf("\n No se encontraron coincidencias\n");
+                        printf("\n No se encontraron diferencias\n");
                     }else{
-                        listPurger(auxArray,auxArrayB);
-                        auxArrayB->map(auxArrayB,mostrarLetra,1);
-                        system("pause");
                         /*removeRepeated(auxArrayB);
                         auxArrayB->map(auxArrayB,mostrarLetra,1);
                         system("pause");*/

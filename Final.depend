@@ -81,7 +81,7 @@
 
 1532528448 c:\users\matias\desktop\final\arraylist.h
 
-1533092524 source:c:\users\matias\desktop\final\letra.c
+1533097241 source:c:\users\matias\desktop\final\letra.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -96,7 +96,7 @@
 1532658294 c:\users\matias\desktop\final\setgetbool.h
 	"letra.h"
 
-1533092651 source:c:\users\matias\desktop\final\main.c
+1533097232 source:c:\users\matias\desktop\final\main.c
 	<stdio.h>
 	<stdlib.h>
 	"letra.h"
