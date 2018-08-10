@@ -5,21 +5,29 @@
 #include "SetGetBool.h"
 #include "letra.h"
 
-void char_setVocal(Letra* this, int vocal){
+int char_setVocal(Letra* this, int vocal){
+    int ok=0;
     if(vocal==0||vocal==1)
-        {this->vocal = vocal;}
+        {this->vocal = vocal;ok=1;}
+    return ok;
 }
-void char_setConsonante(Letra* this, int consonante){
+int char_setConsonante(Letra* this, int consonante){
+    int ok=0;
     if(consonante==0||consonante==1)
-        {this->consonante = consonante;}
+        {this->consonante = consonante;ok=1;}
+    return ok;
 }
-void char_setNombre(Letra* this, char* nombre){
+int char_setNombre(Letra* this, char* nombre){
+    int ok=0;
     if(strlen(nombre)<22)
-        {strcpy(this->nombre, nombre);}
+        {strcpy(this->nombre, nombre);ok=1;}
+    return ok;
 }
-void char_setLetra(Letra* this, char letra){
+int char_setLetra(Letra* this, char letra){
+    int ok=0;
     if(isLetra(letra))
-        {this->letra=letra;}
+        {this->letra=letra;ok=1;}
+    return ok;
 }
 
 char* getString(int large,char* aux){

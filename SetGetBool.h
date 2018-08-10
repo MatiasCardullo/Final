@@ -3,10 +3,10 @@
 #include "letra.h"
 
 //SETTERS
-void char_setVocal(Letra* this, int vocal);
-void char_setConsonante(Letra* this, int consonante);
-void char_setNombre(Letra* this, char* nombre);
-void char_setLetra(Letra* this, char letra);
+int char_setVocal(Letra* this, int vocal);
+int char_setConsonante(Letra* this, int consonante);
+int char_setNombre(Letra* this, char* nombre);
+int char_setLetra(Letra* this, char letra);
 int setVocalOConsonante(Letra* this);
 
 //GETTERS

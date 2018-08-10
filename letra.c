@@ -111,25 +111,26 @@ int listPurger(ArrayList* this,ArrayList* auxArray){
 }
 
 int removeRepeated(ArrayList *this){
-    int arrayList=0;
-    int index=0;
-    int isRepeat=0;
+    int index;
+    int isRepeat=-1;
     char letraAux;
-    for(int i=0;i<this->len(this);i++){
+    int i,j;
+    for(i=1;i<this->len(this);i++){
         letraAux=char_getLetra(this->get(this,i));
-        for(int j=i-1;j>=0;j--){
+        for(j=i-1;j>=0;j--){
             if(letraAux==char_getLetra(this->get(this,j))){
                 isRepeat=1;
                 index=j;
                 break;
             }
         }
-        if(isRepeat){
+        if(isRepeat==1&&index!=this->len(this)){
             isRepeat=0;
             this->remove(this,index);
-            i--;
+            j--;i--;
         }
     }
+    return isRepeat;
 }
 
 int parser_Letra(char* fileName, ArrayList* this){
@@ -154,11 +155,8 @@ int parser_Letra(char* fileName, ArrayList* this){
             }
         }
         Letra* eAux=char_new();
-        char_setVocal(eAux,atoi(vocal));
-        char_setConsonante(eAux,atoi(consonante));
-        char_setNombre(eAux,nombre);
-        char_setLetra(eAux,letra[0]);
-        this->add(this,eAux);
+        if(char_setVocal(eAux,atoi(vocal))&&char_setConsonante(eAux,atoi(consonante))&&char_setNombre(eAux,nombre)&&char_setLetra(eAux,letra[0]))
+            {this->add(this,eAux);}
     }fclose(pFile);
     return ok; // OK
 }
